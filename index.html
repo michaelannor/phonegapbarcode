@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+
+<link rel="stylesheet" href="themes/mwcminiprojecttheme.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $("#scanbtn").click( function()
+        {
+
+                cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
+
+
+        });
+    });
+
+</script>
+
+
+</head>
+
+<body>
+<div data-role="page" id="pageone" data-theme="a">
+
+<div data-role="header">
+<h1>Water Reading App</h1>
+
+</div>
+
+<div role="main" class="ui-content">
+
+<form method="post"> <div data-role="fieldcontain">
+<label for="fname">Value:</label>
+<input type="text" name="fname" id="fname"> 
+
+</div>
+<input type="submit" value="Scan" id="scanbtn">
+
+
+
+
+
+</form>
+
+
+<!--<a href="#pagetwo" data-role="button">Go To Other</a>-->
+
+</div>
+
+
+<div data-role="footer"> <h1>Made With Love in Berekuso</h1>
+</div> </div>
+
+
+
+</body> </html>
