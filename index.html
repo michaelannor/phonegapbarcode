@@ -25,6 +25,7 @@
     function openScanner(){
       cordova.plugins.barcodeScanner.scan(
       function (result) {
+          alert(result.text);
           $("#bcresult").val(result.text);
       }, 
       function (error) {
