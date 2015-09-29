@@ -27,7 +27,8 @@
       function (result) {
 
           $("#bcresult").val(result.text);
-          alert(result.text+"/n"+bcresult.value);
+          var blah = bcresult.value;
+          alert(result.text+"/n"+ blah);
       }, 
       function (error) {
           alert("Scanning failed: " + error);
