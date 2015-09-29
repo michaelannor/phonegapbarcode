@@ -12,7 +12,7 @@
 
 <script src="jquery-2.1.4.min.js"></script>
 <script src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+<script src="cordova.js"></script>
 <script type="text/javascript">
     $(function(){
         $("#scanbtn").click( function()
@@ -20,10 +20,7 @@
 
                 cordova.plugins.barcodeScanner.scan(
       function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
+          $("#bcresult").val(result.text);
       }, 
       function (error) {
           alert("Scanning failed: " + error);
@@ -43,15 +40,15 @@
 <div data-role="page" id="pageone" data-theme="a">
 
 <div data-role="header">
-<h1>Water Reading App</h1>
+<h1>Barcode Scanner</h1>
 
 </div>
 
 <div role="main" class="ui-content">
 
 <form method="post"> <div data-role="fieldcontain">
-<label for="fname">Value:</label>
-<input type="text" name="fname" id="fname"> 
+<label for="bcresult">Value:</label>
+<input type="text" name="bcresult" id="bcresult"> 
 
 </div>
 <input type="submit" value="Scan" id="scanbtn">
