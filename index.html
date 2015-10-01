@@ -26,9 +26,10 @@
       cordova.plugins.barcodeScanner.scan(
       function (result) {
 
-          $("#newtest").val(result.text);
+          $("#dearest").val(result.text);
+          
         //  var blah = dearest.value;
-          //alert(result.text+"\n"+ blah);
+          alert(result.text);
       }, 
       function (error) {
           alert("Scanning failed: " + error);
@@ -56,7 +57,7 @@
 <form method="post"> <div data-role="fieldcontain">
 <label for="dearest">Value:</label>
 <input type="text" name="dearest" id="dearest"> 
-<input type="text" id="newtest">
+<!-- <input type="text" id="newtest"> -->
 </div>
 <input type="submit" value="Scan" id="scanbtn" onclick="openScanner()">
 
